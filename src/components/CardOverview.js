@@ -3,12 +3,18 @@ import { useEffect, useState } from "react";
 export default function CardOverview() {
   const [card, setCard] = useState(null);
 
-  // Fetch card data from JSON Server
   useEffect(() => {
     fetch("http://localhost:5000/cards/1")
       .then((res) => res.json())
       .then((data) => setCard(data))
-      .catch((err) => console.error("Error fetching card:", err));
+      .catch(() => {
+        // Fallback if backend is not available
+        setCard({
+          number: "**** **** **** 1234",
+          balance: 15230,
+          dueDate: "2025-09-25",
+        });
+      });
   }, []);
 
   if (!card) return <p className="text-gray-500">Loading card...</p>;
