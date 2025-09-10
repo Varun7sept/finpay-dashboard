@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import Navbar from "./components/Navbar";
+import CardOverview from "./components/CardOverview";
+import TransactionList from "./components/TransactionList";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="bg-gray-100 min-h-screen">
+      <Navbar />
+
+      <div className="max-w-4xl mx-auto p-4 sm:p-6">
+        <h1 className="text-2xl font-bold text-gray-800 mb-4">
+          Welcome to FinPay
+        </h1>
+
+        {/* Card Overview */}
+        <CardOverview />
+
+        {/* Transaction List */}
+        <TransactionList />
+      </div>
     </div>
   );
 }
-
-export default App;
